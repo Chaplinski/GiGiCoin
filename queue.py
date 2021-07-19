@@ -4,8 +4,12 @@ from message import Message
 class Queue:
     def __init__(self):
         self.queue = []
+        self.add_transaction_message("zyx124", "abd298", 4)
+        self.add_transaction_message("rtf345", "abd298", 4)
+        self.add_transaction_message("hre529", "abd298", 4)
+        self.add_transaction_message("bbg027", "abd298", 4)
 
-    def add_transation_message(self, source_wallet, destination_wallet, num_coins):
+    def add_transaction_message(self, source_wallet, destination_wallet, num_coins):
         self.queue.append(Message(source_wallet, destination_wallet, num_coins).message)
 
     def remove_first_message(self):
@@ -18,15 +22,14 @@ class Queue:
             print("Message " + str(i) + ": " + str(message))
             i += 1
 
+    def retrieve_all_messages(self):
+        return self.queue
 
-this_queue = Queue()
-# message1 = Message("zyx124", "abd298", 4)
-this_queue.add_transation_message("zyx124", "abd298", 4)
-this_queue.add_transation_message("rtf345", "abd298", 4)
-this_queue.add_transation_message("hre529", "abd298", 4)
-this_queue.add_transation_message("bbg027", "abd298", 4)
-this_queue.print_queue()
-print()
-print("Removing message: " + str(this_queue.remove_first_message()))
-print()
-this_queue.print_queue()
+# this_queue = Queue()
+# # message1 = Message("zyx124", "abd298", 4)
+#
+# this_queue.print_queue()
+# print()
+# print("Removing message: " + str(this_queue.remove_first_message()))
+# print()
+# this_queue.print_queue()
