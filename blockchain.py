@@ -17,7 +17,11 @@ class Blockchain:
     def download_blockchain():
         # TODO update this function to download blockchain from another node
         temp_dict = {}
+
+        # this line only exists to initiate the genesis block. It should only run on the first node created and never again be used
         temp_dict['0000000000000000000000000000000000000000000000000000000000000000'] = {}
+
+        # this line will stay even after updating the above lines to actually retrieve the blockchain from another node
         np.save('blockchain.npy', temp_dict)
         # f = open("blockchain.npy", "a")
         # f.write()
@@ -25,8 +29,10 @@ class Blockchain:
     def add_block(self):
         # retrieve new block
         new_block = self.retrieve_new_block()
+
         # add new block to hashmap
         self.blockchain[new_block['block_header']['hash_of_block_data']] = new_block
+
         # save hashmap to disk
         np.save('blockchain.npy', self.blockchain)
 
@@ -36,8 +42,9 @@ class Blockchain:
         b = Block()
         return b.create_block()
 
-    def print_entire_blockchain(self):
-        print(self.blockchain)
+    def return_entire_blockchain(self):
+        # this function can be called to send the entire blockchain to a new node.
+        return self.blockchain
 
     def get_previous_block_hash(self):
         return list(self.blockchain)[-1]
@@ -48,4 +55,4 @@ print("last block:")
 print(b.get_previous_block_hash())
 b.add_block()
 print("entire blockchain:")
-b.print_entire_blockchain()
+print(b.return_entire_blockchain())
