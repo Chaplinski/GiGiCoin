@@ -1,5 +1,4 @@
 from pathlib import Path
-from block import Block
 import numpy as np
 
 class Blockchain:
@@ -18,6 +17,7 @@ class Blockchain:
     def download_blockchain():
         # TODO update this function to download blockchain from another node
         temp_dict = {}
+        temp_dict['0000000000000000000000000000000000000000000000000000000000000000'] = {}
         np.save('blockchain.npy', temp_dict)
         # f = open("blockchain.npy", "a")
         # f.write()
@@ -32,12 +32,20 @@ class Blockchain:
 
     @staticmethod
     def retrieve_new_block():
+        from block import Block
         b = Block()
         return b.create_block()
 
     def print_entire_blockchain(self):
         print(self.blockchain)
 
+    def get_previous_block_hash(self):
+        return list(self.blockchain)[-1]
+
 
 b = Blockchain()
+print("last block:")
+print(b.get_previous_block_hash())
+b.add_block()
+print("entire blockchain:")
 b.print_entire_blockchain()

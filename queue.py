@@ -1,16 +1,16 @@
-from message import Message
+from transaction import Transaction
 
 
 class Queue:
     def __init__(self):
         self.queue = []
-        self.add_transaction_message("zyx124", "abd298", 4)
-        self.add_transaction_message("rtf345", "abd298", 4)
-        self.add_transaction_message("hre529", "abd298", 4)
-        self.add_transaction_message("bbg027", "abd298", 4)
+        self.add_transaction_message_to_queue("zyx124", "abd298", 4)
+        self.add_transaction_message_to_queue("rtf345", "abd298", 4)
+        self.add_transaction_message_to_queue("hre529", "abd298", 4)
+        self.add_transaction_message_to_queue("bbg027", "abd298", 4)
 
-    def add_transaction_message(self, source_wallet, destination_wallet, num_coins):
-        self.queue.append(Message(source_wallet, destination_wallet, num_coins).message)
+    def add_transaction_message_to_queue(self, source_wallet, destination_wallet, num_coins):
+        self.queue.append(Transaction(source_wallet, destination_wallet, num_coins).message)
 
     def remove_first_message(self):
         return self.queue.pop(0)
