@@ -17,8 +17,8 @@ class Queue:
                 print(self.remove_first_message())
             elif sys.argv[1] == "print":
                 self.add_transaction_message_to_queue("rtf345", "abd298", 4)
-                self.add_transaction_message_to_queue("hre529", "abd298", 4)
-                self.add_transaction_message_to_queue("bbg027", "abd298", 4)
+                self.add_transaction_message_to_queue("hre529", "abd298", 11)
+                self.add_transaction_message_to_queue("bbg027", "abd298", 200)
                 self.print_queue()
 
     def add_transaction_message_to_queue(self, source_wallet, destination_wallet, num_coins):

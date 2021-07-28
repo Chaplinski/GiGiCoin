@@ -1,5 +1,6 @@
 from pathlib import Path
 import numpy as np
+import sys
 
 class Blockchain:
     def __init__(self):
@@ -12,6 +13,13 @@ class Blockchain:
 
         # if blockchain file exists then open the file and store it in memory
         self.blockchain = np.load('blockchain.npy',allow_pickle='TRUE').item()
+
+        if len(sys.argv) > 1:
+            if sys.argv[1] == "previous-hash":
+                print(self.get_previous_block_hash())
+            elif sys.argv[1] == "blockchain":
+                print(self.return_entire_blockchain())
+
     @staticmethod
     def download_blockchain():
         # TODO update this function to download blockchain from another node
@@ -47,7 +55,7 @@ class Blockchain:
         return list(self.blockchain)[-1]
 
 
-# b = Blockchain()
+b = Blockchain()
 # print("last block:")
 # print(b.get_previous_block_hash())
 # b.add_block()

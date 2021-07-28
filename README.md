@@ -37,3 +37,13 @@ To check whether a hash exists on disk
 The following example will search for the hash 123abc with a difficulty of 4:
 
 `python3 vault.py find 123abc 4`
+
+<h3>blockchain.py</h3>
+
+To get the hash from the previous block in the blockchain
+
+`python3 blockchain.py previous-hash`
+
+To get the entire blockchain
+
+`python3 blockchain.py blockchain`
