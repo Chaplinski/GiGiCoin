@@ -12,7 +12,6 @@ class Blockchain:
 
         # if blockchain file exists then open the file and store it in memory
         self.blockchain = np.load('blockchain.npy',allow_pickle='TRUE').item()
-
     @staticmethod
     def download_blockchain():
         # TODO update this function to download blockchain from another node
@@ -23,8 +22,6 @@ class Blockchain:
 
         # this line will stay even after updating the above lines to actually retrieve the blockchain from another node
         np.save('blockchain.npy', temp_dict)
-        # f = open("blockchain.npy", "a")
-        # f.write()
 
     def add_block(self):
         # retrieve new block
@@ -50,9 +47,9 @@ class Blockchain:
         return list(self.blockchain)[-1]
 
 
-b = Blockchain()
-print("last block:")
-print(b.get_previous_block_hash())
-b.add_block()
-print("entire blockchain:")
-print(b.return_entire_blockchain())
+# b = Blockchain()
+# print("last block:")
+# print(b.get_previous_block_hash())
+# b.add_block()
+# print("entire blockchain:")
+# print(b.return_entire_blockchain())

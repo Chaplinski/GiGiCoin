@@ -1,13 +1,17 @@
 import time
 import hashlib
 import json
+import sys
 from queue import Queue
-from blockchain import Blockchain
 
 class Block:
     def __init__(self):
         self.block_header = {}
         self.block = {}
+        if sys.argv[1] == "create":
+            print(self.create_block())
+        elif sys.argv[1] == "previous-header":
+            print(self.get_hash_of_previous_block_header())
 
     def create_block(self):
         block_data = self.get_block_data()
@@ -31,6 +35,7 @@ class Block:
         return queue.retrieve_all_messages()
 
     def get_hash_of_previous_block_header(self):
+        from blockchain import Blockchain
         bc = Blockchain()
         return bc.get_previous_block_hash()
 
@@ -38,4 +43,3 @@ class Block:
 # TODO confirm with blockchain that a wallet has num_coins before allowing transaction
 
 b = Block()
-b.create_block()
