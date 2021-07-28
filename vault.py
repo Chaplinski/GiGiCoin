@@ -17,11 +17,3 @@ class Vault:
 
 
 v = Vault()
-# v.does_hash_exist_on_disk("123abc", 20)
-# v.does_hash_exist_on_disk("456yhg", 20)
-# v.does_hash_exist_on_disk("321kij", 20)
-# v.does_hash_exist_on_disk("984rty", 20)
-# v.does_hash_exist_on_disk("345oop", 20)
-# v.does_hash_exist_on_disk("239iio", 20)
-# v.does_hash_exist_on_disk("879jhd", 20)
-# v.does_hash_exist_on_disk("306vcp", 20)
